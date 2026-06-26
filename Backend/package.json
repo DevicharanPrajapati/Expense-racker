@@ -3,6 +3,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "mongodb": "^7.4.0",
     "mongoose": "^9.7.2"
   },
   "devDependencies": {
@@ -11,10 +12,9 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "src/server.js",
- 
   "scripts": {
-  "dev": "nodemon src/server.js",
-  "start": "node src/server.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
