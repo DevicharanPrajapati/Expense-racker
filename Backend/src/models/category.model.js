@@ -20,16 +20,6 @@ const categorySchema = new mongoose.Schema(
       required: true,
     },
 
-    color: {
-      type: String,
-      default: "#3B82F6",
-    },
-
-    icon: {
-      type: String,
-      default: "📁",
-    },
-
     isDefault: {
       type: Boolean,
       default: false,
@@ -40,4 +30,4 @@ const categorySchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Category", categorySchema);
+module.exports = mongoose.model("category", categorySchema);
