@@ -12,12 +12,6 @@ const createCategory = async (req, res) => {
       });
     }
 
-    if (!user) {
-      return res.status(401).json({
-        success: false,
-        message: "Unauthorized. Please login.",
-      });
-    }
 
     const addCategory = await category.create({
       userId: req.user.id,
@@ -37,10 +31,10 @@ const createCategory = async (req, res) => {
     });
   }
 };
-getCategories();
-getCategoryById();
-updateCategory();
-deleteCategory();
+// getCategories();
+// getCategoryById();
+// updateCategory();
+// deleteCategory();
 
 module.exports = {
   createCategory,
