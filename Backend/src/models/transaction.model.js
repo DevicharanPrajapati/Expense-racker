@@ -10,7 +10,7 @@ const transactionSchema = new mongoose.Schema(
 
     category: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
+      ref: "category",
       required: true,
     },
 
@@ -30,6 +30,7 @@ const transactionSchema = new mongoose.Schema(
       type: String,
       enum: ["income", "expense"],
       required: true,
+      lowercase : true
     },
 
     description: {
