@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import {useState} from 'react';
 import api from "../services/api.js";
 
@@ -15,6 +15,8 @@ const Register = () => {
     [e.target.name]: e.target.value,
   });
 }
+const navigate = useNavigate();
+
 async function handleSubmit(e) {
   e.preventDefault();
 
@@ -25,6 +27,7 @@ async function handleSubmit(e) {
     console.log(response.data);
 
     alert("Registration Successful!");
+    navigate("/");
   } catch (error) {
     console.log(error.response?.data);
 

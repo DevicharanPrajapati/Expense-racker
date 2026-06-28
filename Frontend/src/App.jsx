@@ -8,13 +8,11 @@ import MainLayout from "./layouts/MainLayout";
 function App() {
   return (
     <Routes>
-
-      <Route element={<MainLayout/>}>
-
-      <Route path="/" element={<Dashboard />} />
-      
+      <Route element={<MainLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
       </Route>
 
+      <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
     </Routes>
