@@ -58,7 +58,8 @@ const showAllTransaction = async (req, res) => {
         .status(400)
         .json({ success: false, message: "User Not found" });
     }
-    const transactions = await Transaction.find({ user });
+    const transactions = await Transaction.find({ user })
+    .populate("category", "name");
 
     if (transactions.length === 0) {
       return res
@@ -69,7 +70,7 @@ const showAllTransaction = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Transactions are fetched successfully!",
-      Transaction: transactions,
+      transactions,
     });
   } catch (error) {
     return res.status(500).json({
