@@ -51,6 +51,82 @@ const createTransaction = async (req, res) => {
   }
 };
 
+const getDashboard = async (req, res) => {
+  const userId = new mongoose.Types.ObjectId(req.user.id);
+
+  try {
+
+    // Total Income
+    const incomeResult = await Transaction.aggregate([
+      {
+        $match: {
+          user: userId,
+          type: "income",
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          total: { $sum: "$amount" },
+        },
+      },
+    ]);
+
+    // Total Expense
+    const expenseResult = await Transaction.aggregate([
+      {
+        $match: {
+          user: userId,
+          type: "expense",
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          total: { $sum: "$amount" },
+        },
+      },
+    ]);
+
+    console.log("Income Result:", incomeResult);
+    console.log("Expense Result:", expenseResult);
+    const totalIncome = incomeResult.length > 0 ? incomeResult[0].total : 0;
+
+    const totalExpense = expenseResult.length > 0 ? expenseResult[0].total : 0;
+
+    const balance = totalIncome - totalExpense;
+
+    // Recent Transactions
+    const recentTransactions = await Transaction.find({
+      user: userId,
+    })
+      .populate("category", "name")
+      .sort({ createdAt: -1 })
+      .limit(5);
+
+    // Total Transactions
+    const totalTransactions = await Transaction.countDocuments({
+      user: userId,
+    });
+
+    return res.status(200).json({
+      success: true,
+      dashboard: {
+        balance,
+        totalIncome,
+        totalExpense,
+        totalTransactions,
+        recentTransactions,
+      },
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 const showAllTransaction = async (req, res) => {
   try {
     const user = req.user.id;
@@ -162,4 +238,5 @@ module.exports = {
   showAllTransaction,
   incomeTransactions,
   expenseTransactions,
+  getDashboard,
 };
