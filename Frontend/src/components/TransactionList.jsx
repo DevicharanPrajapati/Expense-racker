@@ -55,7 +55,7 @@ const TransactionList = () => {
       <h2 className="text-xl font-bold mb-5">Recent Transactions</h2>
 
       <div className="space-y-4">
-        {transactions.map((item) => (
+        {transactions.slice(0, 5).map((item) => (
           <div
             key={item._id}
             className="flex justify-between items-center border-b pb-4 last:border-none"
