@@ -7,8 +7,7 @@ import Categories from "./Categories";
 // import api from "../services/api"
 
 const Dashboard = () => {
-  
-
+ 
   return (
     <div className="min-h-screen bg-gray-100 p-6 rounded-2xl">
       {/* Header */}

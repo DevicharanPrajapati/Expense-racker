@@ -14,7 +14,7 @@ const Categories = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(response.data);
+        // console.log(response.data);
         setCategories(response.data.categories);
       } catch (error) {
         console.log(error.response?.data || error.message);
@@ -24,7 +24,7 @@ const Categories = () => {
     // Call API when component loads
 
     fetchCategories();
-  }, []);
+  }, [token]);
 
   return (
     <div className="max-w-4xl mx-auto p-6">

@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContexts";
 
 const Navbar = () => {
   const { user } = useAuth();
+  // console.log(user)
 
   return (
     <div className=" p-2 px-8 flex justify-between items-center shadow-md">
