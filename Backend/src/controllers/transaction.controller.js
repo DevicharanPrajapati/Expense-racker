@@ -169,20 +169,31 @@ const filterTransaction = async (req, res) => {
           message: "Invalid filter",
         });
     }
+  
 
-    const transactions = await Transaction.find({
+    const query = {
       user: req.user.id,
-      transactionDate: {
+    };
+
+    if (filter !== "all") {
+      query.transactionDate = {
         $gte: startDate,
         $lte: endDate,
-      },
-    }).sort({ transactionDate: -1 });
+      };
+    }
+
+
+    const transactions = await Transaction.find(query).sort({
+      transactionDate: -1,
+    });
 
     res.status(200).json({
       success: true,
       transactions,
     });
   } catch (error) {
+    console.error("ERROR:", error);
+
     res.status(500).json({
       success: false,
       message: error.message,
