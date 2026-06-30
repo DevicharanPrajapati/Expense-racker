@@ -3,7 +3,7 @@ import { useDashboard } from "../context/DashboardContext";
 
 const BalanceCard = () => {
   const {dashboard} = useDashboard();
-  console.log(dashboard)
+  // console.log(dashboard)
   return (
     <div className="bg-white rounded-2xl shadow-md p-6 w-full">
       {/* Header */}

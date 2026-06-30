@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContexts.jsx";
 // Add at the top
-import { FaPlus } from "react-icons/fa6";
 
 const TransactionFrom = () => {
   const navigate = useNavigate();
@@ -148,7 +147,7 @@ const TransactionFrom = () => {
               Category
             </label>
           </div>
-          <div className="flex gap-4 ">
+          <div className="flex gap-4">
             <select
               name="category"
               value={formData.category}
@@ -166,7 +165,7 @@ const TransactionFrom = () => {
             <button
               type="button"
               onClick={handaleOnClick}
-              className="px-5 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-700 transition"
+              className="w-full px-5 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-700 transition"
             >
               + Add Category
             </button>
@@ -259,7 +258,7 @@ const TransactionFrom = () => {
 
         <button
           type="submit"
-          className="w-full rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 py-3 text-white font-semibold shadow-lg hover:scale-[1.02] hover:shadow-xl transition-all"
+          className="w-full rounded-xl bg-linear-to-r from-green-500 to-emerald-600 py-3 text-white font-semibold shadow-lg hover:scale-[1.02] hover:shadow-xl transition-all"
         >
           Add Transaction
         </button>

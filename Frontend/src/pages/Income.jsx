@@ -5,8 +5,6 @@ import IncomeCard from "../components/IncomeCard";
 import ExpenseCard from "../components/ExpenseCard";
 import SevingCard from "../components/SavingCard";
 import AddTransaction from "../components/AddTransaction";
-import api from "../services/api";
-import { useAuth } from "../context/AuthContexts";
 import { useDashboard } from "../context/DashboardContext";
 
 export const Income = () => {
@@ -45,7 +43,7 @@ export const Income = () => {
 
         {/* Right */}
         <div className="lg:col-span-1">
-          <TransactionList heading={titleInc} income={incomeTransactions} />
+          <TransactionList heading={titleInc} dataTransactions={incomeTransactions} />
         </div>
       </div>
     </div>

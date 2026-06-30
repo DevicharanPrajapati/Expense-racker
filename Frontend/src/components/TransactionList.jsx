@@ -2,70 +2,16 @@
 import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
 // import api from "../services/api";
 // import { useAuth } from "../context/AuthContexts";
-import { useDashboard } from "../context/DashboardContext";
 
-const TransactionList = ({heading, income}) => {
+const TransactionList = ({heading, dataTransactions}) => {
 
-
-  //    {
-  //     id: 1,
-  //     title: "Salary",
-  //     category: "Income",
-  //     amount: 50000,
-  //     type: "income",
-  //     date: "29 Jun 2026",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Groceries",
-  //     category: "Food",
-  //     amount: 1200,
-  //     type: "expense",
-  //     date: "28 Jun 2026",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Electric Bill",
-  //     category: "Bills",
-  //     amount: 2500,
-  //     type: "expense",
-  //     date: "27 Jun 2026",
-  //   },
-  // ]);
-
-  // const { token } = useAuth();
- 
-
-
-  // console.log(dashboard)
-  // transactions(dashboard)
-
-
-  // useEffect(() => {
-  //   const fetchTransaction = async () => {
-  //     try {
-  //       const response = await api.get("/transaction/showTransaction", {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       });
-  //       // console.log(response.data);
-  //       setTransactions(response.data.transactions);
-  //     } catch (error) {
-  //       console.log(error.response?.data || error.message);
-  //     }
-  //   };
-  //   if (token) {
-  //     fetchTransaction();
-  //   }
-  // }, [token]);
-   return (
+ return (
 
     <div className="bg-white rounded-2xl shadow-md p-4">
       <h2 className="text-xl font-bold mb-5">Recent{heading}</h2>
 
       <div className="max-h-[300px] overflow-y-auto space-y-4 px-2">
-        {income.map((item) => (
+        {dataTransactions.map((item) => (
           <div
             key={item._id}
             className="flex justify-between items-center border-b pb-4  last:border-none"

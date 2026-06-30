@@ -4,8 +4,11 @@ import AddTransaction from "../components/AddTransaction";
 import IncomeCard from "../components/IncomeCard";
 import ExpenseCard from "../components/ExpenseCard";
 import SevingCard from "../components/SavingCard";
+import { useDashboard } from "../context/DashboardContext";
 
 const Dashboard = () => {
+const {recentTransactions} = useDashboard();
+
   return (
     <div className="min-h-screen bg-gray-100 p-6 rounded-2xl">
       {/* Header */}
@@ -29,7 +32,7 @@ const Dashboard = () => {
 
         {/* Right */}
         <div className="lg:col-span-1">
-          <TransactionList />
+          <TransactionList dataTransactions={recentTransactions}/>
         </div>
       </div>
     </div>
