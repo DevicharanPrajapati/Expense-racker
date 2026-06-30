@@ -10,7 +10,7 @@ const TransactionList = ({heading, dataTransactions}) => {
     <div className="bg-white rounded-2xl shadow-md p-4">
       <h2 className="text-xl font-bold mb-5">Recent{heading}</h2>
 
-      <div className="max-h-[300px] overflow-y-auto space-y-4 px-2">
+      <div className="max-h-[290px] overflow-y-auto space-y-4 px-2">
         {dataTransactions.map((item) => (
           <div
             key={item._id}

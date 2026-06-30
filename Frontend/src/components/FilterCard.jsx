@@ -1,9 +1,23 @@
-import React from 'react'
+// import React from "react";
+import { useState } from "react";
+
 
 const FilterCard = () => {
-  return (
-    <div>FilterCard</div>
-  )
-}
+  const [filter, setFilter] = useState("all");
 
-export default FilterCard
+  
+    
+  
+  
+  return (
+    <div>
+      <button onClick={() => setFilter("today")}>Today</button>
+      <button onClick={() => setFilter("week")}>This Week</button>
+      <button onClick={() => setFilter("month")}>This Month</button>
+      <button onClick={() => setFilter("year")}>This Year</button>
+      <button onClick={() => setFilter("all")}>All</button>
+    </div>
+  );
+};
+
+export default FilterCard;
