@@ -53,14 +53,15 @@ const TransactionList = () => {
     }
   }, [token]);
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6">
+
+    <div className="bg-white rounded-2xl shadow-md p-4">
       <h2 className="text-xl font-bold mb-5">Recent Transactions</h2>
 
-      <div className="space-y-4">
-        {transactions.slice(0, 4).map((item) => (
+      <div className="max-h-[300px] overflow-y-auto space-y-4 px-2">
+        {transactions.map((item) => (
           <div
             key={item._id}
-            className="flex justify-between items-center border-b pb-4 last:border-none"
+            className="flex justify-between items-center border-b pb-4  last:border-none"
           >
             <div className="flex items-center gap-4">
               <div

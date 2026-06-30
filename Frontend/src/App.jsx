@@ -6,8 +6,9 @@ import Register from "./pages/Register";
 import MainLayout from "./layouts/MainLayout";
 import TransactionFrom from "./components/TransactionForm";
 import ProtectedRoute from "./routes/ProtectedRoute";
-import Categories from "./pages/Categories";
 import CategoryForm from "./components/CategoryForm";
+import NotFound from "./pages/NotFound";
+import Income from "./pages/Income";
 
 function App() {
   return (
@@ -21,6 +22,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/income"
+          element={
+            <ProtectedRoute>
+              <Income />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/add-transaction"
           element={
@@ -30,7 +41,7 @@ function App() {
           }
         />
 
-           <Route
+        <Route
           path="/addCategory"
           element={
             <ProtectedRoute>
@@ -40,11 +51,11 @@ function App() {
         />
       </Route>
 
-   
-
       <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
