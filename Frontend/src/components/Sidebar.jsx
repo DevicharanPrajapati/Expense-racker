@@ -28,8 +28,8 @@ const Sidebar = () => {
       {/* User */}
       <div className="flex items-center gap-3 p-4 rounded-xl cursor-pointer border border-gray-200 hover:bg-lime-100 hover:shadow-md transition-all duration-300">
         {/* Avatar */}
-        <div className="w-12 h-12 rounded-full bg-linear-to-r from-lime-500 to-green-500 flex items-center justify-center text-white">
-          <h2 className="text-xl font-bold">
+        <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white">
+          <h2 className="text-2xl font-bold">
             {user?.name?.charAt(0).toUpperCase() || "U"}
           </h2>
         </div>

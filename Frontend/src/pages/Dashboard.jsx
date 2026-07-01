@@ -32,7 +32,7 @@ const filterAmountExpense = filterTransactionsExpense.reduce(
 );
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 rounded-2xl">
+    <div className="ms:min-h-screen bg-gray-100 p-6 rounded-2xl">
       {/* Header */}
       <h2 className="text-3xl font-bold text-gray-800">Dashboard</h2>
       <p className="text-gray-500 mb-8">Let's manage your pocket.</p>
