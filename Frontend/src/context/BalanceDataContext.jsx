@@ -11,25 +11,25 @@ export const BalanceDataProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   // const [recentTransactions, setRecentTransactions] = useState([]);
 
-  const fetchBalance = async () => {
-    try {
-      const res = await api.get("/transaction/balance", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      setBalance(res.data.dashboard.balance);
-      // setRecentTransactions(res.data.recentTransactions);
-      console.log("Balance fetched:", res.data.dashboard.balance);
-    } catch (error) {
-      console.log(error.response?.data || error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchBalance = async () => {
+      try {
+        const res = await api.get("/transaction/balance", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setBalance(res.data.dashboard.balance);
+        // setRecentTransactions(res.data.recentTransactions);
+        console.log("Balance fetched:", res.data.dashboard.balance);
+      } catch (error) {
+        console.log(error.response?.data || error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     if (token) {
       fetchBalance();
     }
@@ -40,7 +40,7 @@ export const BalanceDataProvider = ({ children }) => {
       value={{
         balance,
         loading,
-        fetchBalance ,
+        // fetchBalance,
         // recentTransactions,
       }}
     >

@@ -12,31 +12,35 @@ export const FilterTransactionProvider = ({ children }) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const getFilteredTransactions = async (selectedFilter) => {
-    if (!token) return;
-
-    try {
-      const { data } = await api.get(
-        `/transaction/filter?filter=${selectedFilter}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setLoading(false);
-
-      setFilter(selectedFilter);
-      setFilterData(data.transactions);
-      setMessage(data.message);
-      // console.log("Filtered Transactions:", data.transactions);
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-      setMessage(error.response?.data?.message || "Error fetching transactions");
-    }
-  };
+  
   useEffect(() => {
+    const getFilteredTransactions = async (selectedFilter) => {
+      if (!token) return;
+
+      try {
+        const { data } = await api.get(
+          `/transaction/filter?filter=${selectedFilter}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        setLoading(false);
+
+        setFilter(selectedFilter);
+        setFilterData(data.transactions);
+        setMessage(data.message);
+        // console.log("Filtered Transactions:", data.transactions);
+      } catch (error) {
+        console.error(error);
+        setLoading(false);
+        setMessage(
+          error.response?.data?.message || "Error fetching transactions",
+        );
+      }
+    };
+
     getFilteredTransactions(filter);
   }, [filter, token]);
 
@@ -47,7 +51,7 @@ export const FilterTransactionProvider = ({ children }) => {
         filterData,
         message,
         loading,
-        getFilteredTransactions,
+        // getFilteredTransactions,
       }}
     >
       {children}
