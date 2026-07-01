@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
           },
         });
 
-        // console.log("Profile Response:", response.data);
+        console.log("Profile Response:", response.data);
         setUser(response.data.profile);
       } catch (error) {
         console.log(error.response?.data || error.message);

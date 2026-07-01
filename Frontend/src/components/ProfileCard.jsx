@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContexts";
 
 const ProfileCard = () => {
   const { user } = useAuth();
+  console.log("user", user);
 
   return (
     <div className="max-w-lg mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">

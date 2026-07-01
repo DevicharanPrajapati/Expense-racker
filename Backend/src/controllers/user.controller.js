@@ -172,6 +172,7 @@ const login = async (req, res) => {
       expiresIn: process.env.JWT_EXPIRES_IN,
     },
   );
+  console.log(user);
 
   return res.status(201).json({
     success: true,
@@ -181,7 +182,6 @@ const login = async (req, res) => {
       id: user._id,
       name: user.name,
       email: user.email,
-      createdAt: user.createdAt,
     },
   });
 };
@@ -189,7 +189,7 @@ const login = async (req, res) => {
 const profile = async (req, res) => {
   try {
     const profileData = await User.findById(req.user.id).select(
-      "-password -createdAt -updatedAt",
+      "-password  -updatedAt",
     );
 
     if (!profileData) {
@@ -202,7 +202,7 @@ const profile = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Profile fetched successful",
-      profile: profileData,
+      profile: profileData,      
     });
   } catch (error) {
     return res.status(400).json({
