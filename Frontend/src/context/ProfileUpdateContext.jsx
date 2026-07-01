@@ -1,11 +1,13 @@
 import { createContext, useContext } from "react";
 import { useAuth } from "./AuthContexts";
 import api from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const ProfileUpdateContext = createContext();
 
 const ProfileUpdateProvider = ({ children }) => {
   const { token, setUser } = useAuth();
+  const navigate = useNavigate();
 
   const updateProfile = async (name) => {
     try {
@@ -21,7 +23,8 @@ const ProfileUpdateProvider = ({ children }) => {
       );
 
       setUser(response.data.user);
-
+      alert(response.data.message);
+      navigate("/profile");
       return response.data;
     } catch (error) {
       console.error(error);
@@ -42,7 +45,8 @@ const ProfileUpdateProvider = ({ children }) => {
         },
       );
       // console.log("Password update response:", response.data);
-      
+      alert(response.data.message);
+      navigate("/profile");
       return response.data.message;
     } catch (error) {
       console.error(error.message);

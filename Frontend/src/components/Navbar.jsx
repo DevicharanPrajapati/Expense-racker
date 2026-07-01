@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="logo cursor-pointer hover:bg-olive-200 p-2 rounded-xl">
         <h1 className="text-xl font-bold font-sans cursor-pointer select-none flex gap-1 items-center">
           <FaWallet size={25} color="red" />
-          PocketTrack
+          PocketTracker
         </h1>
       </div>
 
