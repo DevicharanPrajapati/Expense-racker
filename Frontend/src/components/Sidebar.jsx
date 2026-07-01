@@ -1,6 +1,10 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { MdDashboard } from "react-icons/md";
-import { FaArrowAltCircleUp, FaArrowAltCircleDown, FaUser } from "react-icons/fa";
+import {
+  FaArrowAltCircleUp,
+  FaArrowAltCircleDown,
+  FaUser,
+} from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { useAuth } from "../context/AuthContexts";
 
@@ -31,22 +35,20 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`
           fixed lg:static
           top-0 left-0
           w-64 h-screen
-          bg-white shadow-xl
           flex flex-col
+          bg-white
           z-50
           transform transition-transform duration-300
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           lg:translate-x-0
         `}
       >
-        {/* User */}
-        <div className="flex items-center gap-3 p-4 rounded-xl cursor-pointer border border-gray-200 hover:bg-lime-100 hover:shadow-md transition-all duration-300">
+        <div className="flex items-center gap-3 p-4 mt-6  rounded-xl cursor-pointer border border-gray-200 hover:bg-lime-100 hover:shadow-md transition-all duration-300">
           <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white">
             <h2 className="text-2xl font-bold">
               {user?.name?.charAt(0).toUpperCase() || "U"}
@@ -57,9 +59,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             <h3 className="font-semibold text-gray-800 truncate">
               {user?.name}
             </h3>
-            <p className="text-sm text-gray-500 truncate">
-              {user?.email}
-            </p>
+            <p className="text-sm text-gray-500 truncate">{user?.email}</p>
           </div>
         </div>
 
@@ -101,8 +101,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             <span>Profile</span>
           </NavLink>
         </nav>
-
-        {/* Logout */}
         <div className="p-4 border-t">
           <button
             className="flex items-center gap-3 w-full p-3 rounded-xl text-red-500 hover:bg-red-50 transition"
@@ -112,6 +110,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             <span className="font-medium">Logout</span>
           </button>
         </div>
+
+        {/* Logout */}
       </aside>
     </>
   );

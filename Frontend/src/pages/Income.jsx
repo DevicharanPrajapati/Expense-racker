@@ -28,18 +28,14 @@ export const Income = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6 rounded-2xl">
-      {/* Header */}
       <h2 className="text-3xl font-bold text-gray-800">Income</h2>
       <p className="text-gray-500 mb-8">Let's manage your Income.</p>
       
-      {/* Bottom Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Left */}
         <IncomeCard amount={filterAmount} />
         <FilterCard />
         <AddTransaction heading={title} />
 
-        {/* Right */}
         <div className="lg:col-span-1">
           <TransactionList
             heading={titleInc}

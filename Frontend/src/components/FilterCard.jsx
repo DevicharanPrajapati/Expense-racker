@@ -17,15 +17,6 @@ const FilterCard = () => {
 
   return (
     <div className="bg-emerald-100 p-4  rounded-xl shadow-md mb-4">
-      <h2
-        className="flex items-center gap-2 text-md font-bold mb-4 
-       text-olive-800 "
-      >
-        <FaArrowTrendUp color="green" />
-        Filter Your Transactions
-      </h2>
-
-      <div className="bg-emerald-100 p-4 rounded-xl shadow-md mb-4">
         <h2 className="flex items-center gap-2 text-lg md:text-xl font-bold mb-4 text-olive-800">
           <FaArrowTrendUp color="green" />
           Filter Your Transactions
@@ -68,7 +59,6 @@ const FilterCard = () => {
           </button>
         </div>
       </div>
-    </div>
   );
 };
 
