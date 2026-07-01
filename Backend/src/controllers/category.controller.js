@@ -56,9 +56,6 @@ try {
 }
 };
 
-// const getCategoryById = async(req, res)=>{
-
-// };
 
 const updateCategory = async(req, res)=>{
 

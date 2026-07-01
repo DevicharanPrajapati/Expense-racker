@@ -8,7 +8,7 @@ const ProfileCard = () => {
     <div className="max-w-lg mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
 
       {/* Header */}
-      <div className="bg-green-600 text-white py-6 flex flex-col items-center">
+      <div className="bg-green-500 text-olive-800 py-6 flex flex-col items-center">
 
         <div className="h-24 w-24 rounded-full bg-white text-green-600 flex items-center justify-center text-4xl font-bold">
           {user?.name?.charAt(0).toUpperCase()}
@@ -18,7 +18,7 @@ const ProfileCard = () => {
           {user?.name}
         </h2>
 
-        <p className="text-green-100">
+        <p className="text-olive-900">
           {user?.email}
         </p>
 
