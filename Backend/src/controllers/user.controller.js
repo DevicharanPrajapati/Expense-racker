@@ -79,13 +79,60 @@ const updateProfile = async (req, res) => {
         .json({ success: false, message: "user not found" });
     }
 
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "user updated successfully",
-        user: updatedUser,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "user updated successfully",
+      user: updatedUser,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+const updatePassword = async (req, res) => {
+  try {
+    const { oldPassword, newPassword } = req.body;
+
+    if (!oldPassword || !newPassword) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Name is required" });
+    }
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "user not found" });
+    }
+
+    const isPasswordMatch = await bcrypt.compare(oldPassword, user.password);
+    if (!isPasswordMatch) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Old password is incorrect" });
+    }
+
+    const updatedPassword = await User.findByIdAndUpdate(
+      user, // Which user?
+      {
+        password: newPassword, // What to update?
+      },
+      {
+        returnDocument: "after",
+      },
+      {
+        new: true, // Return updated document
+      },
+    );
+
+
+    return res.status(200).json({
+      success: true,
+      message: "user updated successfully",
+      user: updatedPassword,});
   } catch (error) {
     return res.status(400).json({
       success: false,
@@ -152,13 +199,11 @@ const profile = async (req, res) => {
       });
     }
 
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: "Profile fetched successful",
-        profile: profileData,
-      });
+    return res.status(200).json({
+      success: true,
+      message: "Profile fetched successful",
+      profile: profileData,
+    });
   } catch (error) {
     return res.status(400).json({
       success: false,
@@ -180,4 +225,5 @@ module.exports = {
   login,
   profile,
   updateProfile,
+  updatePassword,
 };

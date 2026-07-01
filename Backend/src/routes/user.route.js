@@ -3,7 +3,8 @@ const {userRegistration,
   updateProfile,
   logout,
   login,
-  profile
+  profile,
+  updatePassword,
 } = require("../controllers/user.controller");
 const verifyToken = require('../middleware/auth.middleware');
 
@@ -14,6 +15,7 @@ router.post("/register", userRegistration);
 router.post("/login", login)
 router.get("/profile",verifyToken, profile)
 router.put("/updateProfile", verifyToken, updateProfile)
+router.put("/updatePassword", verifyToken, updatePassword)
 router.delete("/logout", verifyToken, logout)
 
 

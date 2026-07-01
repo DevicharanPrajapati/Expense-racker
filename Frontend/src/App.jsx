@@ -11,6 +11,8 @@ import NotFound from "./pages/NotFound";
 import Income from "./pages/Income";
 import Expense from "./pages/Expense";
 import Profile from "./pages/Profile";
+import UpdateProfileForm from "./components/UpdateProfileForm";
+import UpdatePasswordForm from "./components/UpdatePassForm";
 
 function App() {
 
@@ -66,6 +68,25 @@ function App() {
           element={
             <ProtectedRoute>
               <CategoryForm />
+            </ProtectedRoute>
+          }
+        />
+
+        
+        <Route
+          path="/updateProfile"
+          element={
+            <ProtectedRoute>
+              <UpdateProfileForm />
+            </ProtectedRoute>
+          }
+        />
+
+         <Route
+          path="/updatePassword"
+          element={
+            <ProtectedRoute>
+              <UpdatePasswordForm />
             </ProtectedRoute>
           }
         />
