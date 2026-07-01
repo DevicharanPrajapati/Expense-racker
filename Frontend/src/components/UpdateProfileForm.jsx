@@ -12,11 +12,11 @@ const UpdateProfileForm = () => {
 
   const [name, setName] = useState(user?.name || "");
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // API Call Here
-   await updateProfile(name);
+    updateProfile(name);
    alert("Profile updated successfully!");
    navigate("/profile");
   };

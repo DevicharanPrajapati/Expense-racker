@@ -22,12 +22,12 @@ const UpdatePasswordForm = () => {
 
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // API Call
     console.log(formData);
-    await updatePassword(formData);
+    updatePassword(formData);
     alert("Password updated successfully!");
   };
 

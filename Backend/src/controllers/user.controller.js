@@ -188,7 +188,7 @@ const updatePassword = async (req, res) => {
     const hashedNewPassword = await bcrypt.hash(newPassword, 10);
 
     const updatedPassword = await User.findByIdAndUpdate(
-      user, // Which user?
+      req.user.id, // Which user?
       {
         password: hashedNewPassword, // What to update?
       },
